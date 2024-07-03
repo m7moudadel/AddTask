@@ -1,0 +1,8 @@
+<app-card>
+  <button  [ngClass]="selected? 'active' : '' " (click)="onSelctorUser()">
+    <img *ngIf="imgPath" [src]="imgPath" alt="Not Found">
+ <span>{{users.name}}</span>
+ </button>
+
+</app-card>
+

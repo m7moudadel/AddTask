@@ -1,0 +1,31 @@
+<app-header/>
+<main>
+  <ul id="users">
+
+    <li  *ngFor="let users of users ">
+      <app-user
+    [users]="users"
+    [selected]="users.id === selectedUserId"
+    (select)="onSelctorUser($event)"  />
+    </li>
+  </ul>
+<!-- @if(selectedUser){
+  <app-tasks [name]="userSelcetId.name"/>
+
+}@else{
+  <p id="fallback"></p>
+} -->
+<!-- <div *ngIf="selectedUserId">
+  <app-tasks [name]="userSelcetId!.name"/>
+
+</div>
+<div *ngIf="selectedUserId==null">
+  <app-tasks id="fallback" name="Select a user to see thier task !"/>
+
+</div> -->
+<app-tasks  *ngIf="selectedUserId ; else fallback"   [userId]="userSelcetId!.id"   [name]="userSelcetId!.name" />
+<ng-template #fallback>
+  <p id="fallback">Select a user to see thier task !</p>
+</ng-template>
+
+  </main>

@@ -1,0 +1,27 @@
+<div class="backdrop" (click)="onCancle()"></div>
+<dialog open>
+  <h2>Add Task</h2>
+  <form  [formGroup]="taskForm" (ngSubmit)="addTask(taskForm)">
+    <p>
+      <label for="title">Title</label>
+      <input name="title" formControlName="enterdTitle" />
+    </p>
+
+    <p>
+      <label for="summary">Summary</label>
+      <textarea id="summary" rows="5" name="summary" formControlName="enterdSummry"></textarea>
+    </p>
+
+    <p>
+      <label for="due-date">Due Date</label>
+      <input type="date" id="due-date" name="due-date"  formControlName="enterdTime" />
+    </p>
+      <div *ngIf="Error">
+        <p class="textError">{{Error}}</p>
+      </div>
+    <p class="actions">
+      <button type="button" (click)="onCancle()">Cancel</button>
+      <button type="submit">Create</button>
+    </p>
+  </form>
+</dialog>
